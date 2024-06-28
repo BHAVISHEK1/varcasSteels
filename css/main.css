@@ -74,9 +74,6 @@ body {
 
 
 
-
-
-
 .downarrow{
 
   
@@ -138,9 +135,21 @@ body {
 
 
 
+@media (max-width: 350px) {
+    #heads{
+        font-size: 1.3em;
+        
+    }
+}
+
+
+
+
+
+
 
 .title-img h2 {
-    color: rgb(234, 238, 14);
+    color: rgb(255, 255, 255);
     font-size: 48px;
     overflow: hidden;
     /* Hide overflowing content during animation */

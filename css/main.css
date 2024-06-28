@@ -142,9 +142,15 @@ body {
     }
 }
 
-
-
-
+@media (max-width: 500px) {
+    #heads2{
+        font-size:.9rem;
+        color: #ffffff;
+        font-weight: 1000;
+       
+        
+    }
+}
 
 
 

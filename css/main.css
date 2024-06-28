@@ -135,9 +135,9 @@ body {
 
 
 
-@media (max-width: 350px) {
+@media (max-width: 500px) {
     #heads{
-        font-size: 1.3em;
+        font-size: 1.3rem;
         
     }
 }

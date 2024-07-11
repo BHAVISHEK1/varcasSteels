@@ -81,6 +81,44 @@
 
     <style>
 
+
+        /* Scrollbar */
+
+
+
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar by default */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Optional: Enables momentum scrolling in iOS Safari */
+}
+
+.carousel::-webkit-scrollbar {
+   height:7px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 7px; /* Rounded corners */
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: #c5c5c5; /* Thumb color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+    background: #d5d5d5; /* Hovered thumb color */
+}
+
+
+
+
+
+
+
+
         /* type heading */
 
         .header {
@@ -88,8 +126,12 @@
             color: white;
             padding: 20px;
             text-align: center;
-            width: 100%;
-            border-top: 5px solid white;
+            align-items: baseline;
+            height: 100px;
+            border-bottom: 5px solid rgb(72, 235, 211);;
+            border-top: 5px solid rgb(72, 235, 211);
+
+
             
         }
         .header p {
@@ -109,43 +151,41 @@
         }
 
         /* Silder */
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-        .carousel-track {
+        .carousel {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* Optional: Enables momentum scrolling in iOS Safari */
         }
-        .carousel-item {
-            min-width: 33.33%;
-            box-sizing: border-box;
-            padding: 15px;
+        .portfolio-item {
+            flex: 0 0 auto;
+            margin-right: 10px; /* Adjust as needed */
+            scroll-snap-align: start;
         }
-        .carousel-item img {
-            width: 100%;
+        .portfolio-item-wrap {
+            width: 400px; /* Adjust the width as needed */
+            height: 400px; /* Adjust the height as needed */
+            overflow: hidden;
+            border: 1px solid #ccc; /* Border style */
             border-radius: 10px;
+            margin: 5px;
         }
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            cursor: pointer;
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 10px;
-            z-index: 10;
         }
-        .carousel-button.prev {
-            left: 10px;
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            border-radius: 10px; /* Rounded corners for the image */
         }
-        .carousel-button.next {
-            right: 10px;
-        }
-
+      
 
 
 
@@ -157,32 +197,10 @@
 
 
 <script>
-    const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const nextButton = document.querySelector('.carousel-button.next');
-    const prevButton = document.querySelector('.carousel-button.prev');
 
-    let index = 0;
-    const slideWidth = items[0].clientWidth;
+    // Slider
 
-    function moveToSlide(index) {
-        track.style.transform = 'translateX(' + (-slideWidth * index) + 'px)';
-    }
-
-    nextButton.addEventListener('click', () => {
-        index = Math.min(index + 1, items.length - 3);
-        moveToSlide(index);
-    });
-
-    prevButton.addEventListener('click', () => {
-        index = Math.max(index - 1, 0);
-        moveToSlide(index);
-    });
-
-    setInterval(() => {
-        index = (index + 1) % (items.length - 2);
-        moveToSlide(index);
-    }, 1000);
+   
 </script>
 
 
@@ -201,33 +219,51 @@
 
         <!-- Slider Galler -->
 
-        <!--Gallery Carousel -->
-        
-        <div class="container">
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="carousel-item">
-                        <img src="Images/Fitting Seamless/screwed-fittings.jpg" alt="Image 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Images/Fitting Seamless/socket-weld-fittings.png" alt="Image 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Images/Fitting Seamless/stainless-steel-hygienic-pipe-fittings-wellgreen.jpg" alt="Image 3">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Images/Fitting Seamless/threaded fitting.jpg" alt="Image 4">
-                    </div>
-                </div>
-                <button class="carousel-button prev">&lt;</button>
-                <button class="carousel-button next">&gt;</button>
-            </div>
-        </div>
-        <!--Gallery Carousel -->
+       
 
          <!-- Slider Galler -->
 
+         <div class="carousel" data-items="3" data-dots="false" data-lightbox="gallery">
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <div class="portfolio-image">
+                        <a href="#"><img src="Images\Fitting Seamless\threaded fitting.jpg" alt="JS" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <div class="portfolio-image">
+                        <a href="#"><img src="Images\Fitting Seamless\screwed-fittings.jpg" alt="JS" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <div class="portfolio-image">
+                        <a href="#"><img src="Images\Fitting Seamless\stainless-steel-904l-forge-fitting.jpg" alt="JS" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <div class="portfolio-image">
+                         <a href="#"><img src="Images\Fitting Seamless\socket-weld-fittings.png" alt="JS" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <div class="portfolio-image">
+                         <a href="#"><img src="Images\Fitting Seamless\stainless-steel-hygienic-pipe-fittings-wellgreen.jpg" alt="JS" class="img-fluid rounded"></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
 
@@ -407,9 +443,341 @@
 
 
 
+        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Nickel Alloy Buttweld (B/W) Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Sch. & Swg.</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Cupro Nickel<br>
+                                            Hastelloy<br>
+                                            Nickel<br>
+                                            Monel<br>
+                                            Inconel<br>
+                                            Alloy 20<br>
+                                            Duplex</td>
+                                        <td>6.35 mm OD to
+                                            152 mm OD<br>
+                                            &<br>
+                                            15 NB
+                                            to
+                                            150 NB</td>
+                                        <td>20 Swg.<br>
+                                            18 Swg.<br>
+                                            16 Swg.<br>
+                                            14 Swg.<br>
+                                            12 Swg.<br>
+                                            10 Swg.,<br>
+                                            &<br>
+                                            Sch. 10, Sch. 40<br>
+                                            Sch. 80 Etc.</td>
+                                        <td>IS<br>
+                                            BS<br>
+                                            ANSI<br>
+                                            ASTM<br>
+                                            UNS</td>
+                                        <td>
+                                            <ul>
+                                                <li>Bend (Long & Short)</li>
+                                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                                <li>Tee (Equal & Unequal)</li>
+                                                <li>Reducer (Con & Ecc)</li>
+                                                <li>CAP</li>
+                                                <li>Stubend (Long & Short)</li>
+                                                <li>Nipple (Barrel)</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Grade</th>
+                                        <td>Nickel 200 (UNS No. N02200), Nickel 201 (UNS No. N02201),<br>
+                                            Monel 400 (UNS No. N04400), Monel 500 (UNS No. N05500),<br>
+                                            Inconel 800 (UNS No. N08800), Inconel 825 (UNS No. N08825),<br>
+                                            Inconel 600 (UNS No. N06600), Inconel 625 (UNS No. N06625),<br>
+                                            Inconel 601 (UNS No. N06601),<br>
+                                            Titanium (Grade I & II)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Size:</th>
+                                        <td>1/4” NB TO 32” NB. (Seamless & Welded)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Wall Thickness:</th>
+                                        <td>Sch. 5S to Sch. XXS.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Nickel Alloy Forged Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Class</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Cupro Nickel<br>
+                                            Hastelloy<br>
+                                            Nickel<br>
+                                            Monel<br>
+                                            Inconel<br>
+                                            Alloy 20<br>
+                                            Duplex</td>
+                                        <td>15 NB
+                                            to
+                                            80 NB</td>
+                                        <td>3000#<br>
+                                            6000#</td>
+                                        <td>ASTM<br>
+                                            BS<br>
+                                            DIN</td>
+                                        <td>
+                                            <ul>
+                                                <li>Elbow - 90<sup>o</sup> &amp; 45<sup>o</sup></li>
+                                                <li>Tee - Equal & Reducing</li>
+                                                <li>Union</li>
+                                                <li>Cross</li>
+                                                <li>Coupling - Full & Half</li>
+                                                <li>Socket Reducing</li>
+                                                <li>CAP</li>
+                                                <li>Plug-Hex & Square,</li>
+                                                <li>Nipples (Hex/Reducing)</li>
+                                                <li>Bushing</li>
+                                                <li>Sokolet, Weldolet, Thredolet, Elbolet & Nipolet</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Nickel Alloy in Grade</th>
+                                        <td>Nickel 200 (UNS No. N02200), Nickel 201 (UNS No. N02201),<br>
+                                            Monel 400 (UNS No. N04400), Monel 500 (UNS No. N05500),<br>
+                                            Inconel 800 (UNS No. N08800), Inconel 825 (UNS No. N08825),<br>
+                                            Inconel 600 (UNS No. N06600), Inconel 625 (UNS No. N06625),<br>
+                                            Inconel 601 (UNS No. N06601),<br>
+                                            Titanium (Grade I & II)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Size:</th>
+                                        <td>1/2” NB TO 24” NB.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Class:</th>
+                                        <td>150#, 300#, 400#, 600#, 900#, 1500# & 2500#.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
         <div class="header">
             <p>Non Ferrous Metal</p>
         </div>
+
+
+        <div class="line"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="6">Non Ferrous Metal Buttweld (B/W) Fitting</th>
+                    </tr>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Material</th>
+                        <th>Size</th>
+                        <th>Swg.</th>
+                        <th>Specification</th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Copper<br>
+                            Brass<br>
+                            Aluminium<br>
+                            Phosphorus Bronze<br>
+                            Gun Metal<br>
+                            Lead</td>
+                        <td>6.35 mm OD<br>
+                            to<br>
+                            152 mm OD</td>
+                        <td>24 Swg., 22 Swg.,<br>
+                            20 Swg., 18 Swg.,<br>
+                            16 Swg., 14 Swg.,<br>
+                            12 Swg., 10 Swg.</td>
+                        <td>IS<br>
+                            BS<br>
+                            ASTM</td>
+                        <td>
+                            <ul>
+                                <li>Bend (Long & Short)</li>
+                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                <li>Tee (Equal & Unequal)</li>
+                                <li>Reducer (Con & Ecc)</li>
+                                <li>CAP</li>
+                                <li>Stubend (Long & Short)</li>
+                                <li>Nipple (Barrel)</li>
+                            </ul>
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Other Service:</th>
+                        <td>Casting, Forging, Machining Etc.
+                            AS PER DRAWING</td>
+                    </tr>
+                    <tr>
+                        <th>Test Certificate:</th>
+                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="line"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="6">Non Ferrous Metal Forged Fitting</th>
+                    </tr>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Material</th>
+                        <th>Size</th>
+                        <th>Class</th>
+                        <th>Specification</th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Copper<br>
+                            Brass<br>
+                            Aluminium<br>
+                            Phosphorus Bronze<br>
+                            Gun Metal<br>
+                            Lead</td>
+                        <td>6.35 mm OD<br>
+                            to<br>
+                            100 mm OD</td>
+                        <td>3000#<br>
+                            6000#</td>
+                        <td>IS<br>
+                            BS<br>
+                            ASTM</td>
+                        <td>
+                            <ul>
+                                <li>Elbow - 90<sup>o</sup> &amp; 45<sup>o</sup></li>
+                                <li>Tee - Equal & Reducing</li>
+                                <li>Union</li>
+                                <li>Cross</li>
+                                <li>Coupling - Full & Half</li>
+                                <li>Socket Reducing</li>
+                                <li>CAP</li>
+                                <li>Plug-Hex & Square,</li>
+                                <li>Nipples (Hex/Reducing)</li>
+                                <li>Bushing</li>
+                                <li>Sokolet, Weldolet, Thredolet, Elbolet & Nipolet</li>
+                            </ul>
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Value Added Service:</th>
+                        <td>Casting, Forging, Machining As Per Drawing</td>
+                    </tr>
+                    <tr>
+                        <th>Test Certificate:</th>
+                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 
 
 
@@ -419,6 +787,210 @@
         </div>
 
 
+        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Range of Buttweld [B/W] Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Schedule</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">1.</td>
+                                        <td rowspan="2">Alloy Steel</td>
+                                        <td>15 NB
+                                            To 500 NB</td>
+                                        <td>Sch. 40
+                                            To Sch. XXs</td>
+                                        <td>A-234 WP B/W<br>
+                                            Seamless<br>
+                                            ANSI B16.9</td>
+                                        <td rowspan="2">
+                                            <ul>
+                                                <li>Bend (Long & Short)</li>
+                                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                                <li>Tee (Equal & Unequal)</li>
+                                                <li>Reducer (Con & Ecc)</li>
+                                                <li>CAP</li>
+                                                <li>Stubend (Long & Short)</li>
+                                                <li>Nipple (Barrel)</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                            <td>300 NB
+                                            To 600 NB</td>
+                                            <td>Sch. 10
+                                                To Sch. 80s</td>
+                                            <td>A-234 WP B/W<br>
+                                                Welded<br>
+                                                ANSI B16.9</td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="2"> Alloy Steel in Grade:</th>
+                                        <td>ASTM A 234 WP</td>
+                                        <td>P5, P9, P11, P12, P21, P22 & P91.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASTM A 182</td>
+                                        <td>F5, F9, F11, F12, F21, F22 & F91.</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Specialize:</th>
+                                        <td>IBR Fittings</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Size:</th>
+                                        <td>1/4” NB TO 32” NB. (Seamless & Welded)</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Wall Thickness:</th>
+                                        <td>Sch. 5S To Sch. XXS</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Types:</th>
+                                        <td>Elbow, Tee, Reducer, Return Bends, Stub-Ends, Cap, Collar, Cross, Insert etc.
+                                            ASTM A234 WP1/ WP5/ WP9/ WP11/ WP22/WP91 etc</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Range of Forged Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Class</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Forged Alloy Steel</td>
+                                        <td>15 NB
+                                            To<br>
+                                            100 NB</td>
+                                        <td>3000<br>
+                                            6000<br>
+                                            &<br>
+                                            9000 LBS</td>
+                                        <td>A-182<br>
+                                            ANSI B16.11<br>
+                                            S/W & SCRD<br>
+                                            (As per Gauge)<br>
+                                            (NPT / BSP /BSPT)</td>
+                                        <td>
+                                            <ul>
+                                                <li>Elbow - 90<sup>o</sup> &amp; 45<sup>o</sup></li>
+                                                <li>Tee - Equal & Reducing</li>
+                                                <li>Union</li>
+                                                <li>Cross</li>
+                                                <li>Coupling - Full & Half</li>
+                                                <li>Socket Reducing</li>
+                                                <li>CAP</li>
+                                                <li>Plug-Hex & Square,</li>
+                                                <li>Nipples (Hex/Reducing)</li>
+                                                <li>Bushing</li>
+                                                <li>Sokolet, Weldolet, Thredolet, Elbolet & Nipolet</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="2"> Alloy Steel in Grade:</th>
+                                        <td>ASTM A 234 WP</td>
+                                        <td>P5, P9, P11, P12, P21, P22 & P91.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASTM A 182</td>
+                                        <td>F5, F9, F11, F12, F21, F22 & F91.</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Specialize:</th>
+                                        <td>IBR Fittings</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Size:</th>
+                                        <td>1/2” NB TO 24” NB.</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Class:</th>
+                                        <td>150#, 300#, 400#, 600#, 900#, 1500# & 2500#</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Types:</th>
+                                        <td>Weldneck, Slipon, Blind, Socket Weld, Lap Joint, Spectacles, Ring Joint, Orifcae, etc..
+                                            ASTM ASTM A182 F1/ F5/ F9/ F11/ F22/ F91 etc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="header">
             <p>Carbon Steel</p>
@@ -426,6 +998,313 @@
 
 
 
+
+        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Range of Buttweld [B/W] Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Schedule</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">1.</td>
+                                        <td rowspan="2">Carbon Steel</td>
+                                        <td>15 NB
+                                            To 500 NB</td>
+                                        <td>Sch. 40
+                                            To Sch. XXs</td>
+                                        <td>A-234 WP B/W<br>
+                                            Seamless<br>
+                                            ANSI B16.9</td>
+                                        <td rowspan="4">
+                                            <ul>
+                                                <li>Bend (Long & Short)</li>
+                                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                                <li>Tee (Equal & Unequal)</li>
+                                                <li>Reducer (Con & Ecc)</li>
+                                                <li>CAP</li>
+                                                <li>Stubend (Long & Short)</li>
+                                                <li>Nipple (Barrel)</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                            <td>200 NB
+                                            To 600 NB</td>
+                                            <td>Sch. 10
+                                                To Sch. 80s</td>
+                                            <td>A-234 WPW B/W<br>
+                                                Welded<br>
+                                                ANSI B16.9</td>
+                                      </tr>
+                                      <tr>
+                                        <td rowspan="2">2.</td>
+                                        <td rowspan="2">Low Temperature Carbon Steel</td>
+                                        <td>15 NB
+                                            To 300 NB</td>
+                                        <td>Sch. 40
+                                            To Sch. XXs</td>
+                                        <td>A-420 WPL 6 B/W
+                                            Seamless
+                                            ANSI B16.9</td>
+                                      </tr>
+                                      <tr>
+                                            <td>200 NB
+                                            To 600 NB</td>
+                                            <td>Sch. 10
+                                                To Sch. 80s</td>
+                                            <td>A-420 WPL 6 B/W Welded
+                                                ANSI B16.9</td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Other Grade Available:</th>
+                                        <td>A-350 LF2, ASTM B-333</td>
+                                    </tr>
+                                    <tr>
+                                        <th>OTHER FORMS</th>
+                                        <td>Compression Fitting / Instrumentation / Hydraulic Fitting /
+                                            & Also As Per Drawing</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Specialize:</th>
+                                        <td>
+                                            <ul>
+                                                <li>Long Bend with Radius – R = 3D, 5D & 10D</li>
+                                                <li>Pigabble Bend & IBR Fittings</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Size:</th>
+                                        <td>1/4” NB TO 32” NB. (Seamless & Welded)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Wall Thickness:</th>
+                                        <td>Sch. 5S To Sch. XXS</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Types:</th>
+                                        <td>Elbow, Tee, Reducer, Return Bends, Stub-Ends, Cap, Collar, Cross, Insert etc
+                                            ASTM A234 WPB / A420 WPL3/ A420 WPL6/ MSS-SP-75 WPHY 42/46/52 /56/60/65/70</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="line"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th colspan="6">Range of Forged Fitting</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Material</th>
+                                        <th>Size</th>
+                                        <th>Class</th>
+                                        <th>Specification</th>
+                                        <th>Item</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Forged Carbon  Steel</td>
+                                        <td>15 NB
+                                            To<br>
+                                            100 NB</td>
+                                        <td>3000<br>
+                                            6000<br>
+                                            &<br>
+                                            9000 LBS</td>
+                                        <td>A-105<br>
+                                            ANSI B16.11<br>
+                                            S/W & SCRD<br>
+                                            (As per Gauge)<br>
+                                            (NPT / BSP /BSPT)</td>
+                                        <td>
+                                            <ul>
+                                                <li>Elbow - 90<sup>o</sup> &amp; 45<sup>o</sup></li>
+                                                <li>Tee - Equal & Reducing</li>
+                                                <li>Union</li>
+                                                <li>Cross</li>
+                                                <li>Coupling - Full & Half & Quick Release</li>
+                                                <li>Socket (Reducing)</li>
+                                                <li>CAP</li>
+                                                <li>Plug-Hex & Square,</li>
+                                                <li>Nipples (Hex/Reducing)</li>
+                                                <li>Bushing</li>
+                                                <li>Sokolet, Weldolet, Thredolet, Elbolet & Nipolet</li>
+                                            </ul>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Other Grade Available:</th>
+                                        <td>A-350 LF2, ASTM B-333</td>
+                                    </tr>
+                                    <tr>
+                                        <th>OTHER FORMS</th>
+                                        <td>Compression Fitting / Instrumentation / Hydraulic Fitting /
+                                            & Also As Per Drawing</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Test Certificate:</th>
+                                        <td>Manufacturer Test Certificate as per EN 10204 / 3.1, Raw Materials Certificate, Third Party Inspection Report.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Specialize:</th>
+                                        <td>
+                                            <ul>
+                                                <li>Long Bend with Radius – R = 3D, 5D & 10D</li>
+                                                <li>Pigabble Bend & IBR Fittings</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Types:</th>
+                                        <td>Weldneck, Slipon, Blind, Socket Weld, Lap Joint, Spectacles, Long Weldneck, Deck Flange, etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Size:</th>
+                                        <td>1/2” NB TO 24” NB.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Class:</th>
+                                        <td>150#, 300#, 400#, 600#, 900#, 1500# & 2500#.
+                                            ASTM A105/ A694 F42/ 46/ 52/ 56/ 60/ 65/ 70/ A350 LF3/ A350 LF2, etc.
+                                            “As well as Screwed Fittings, High Pressure Fittings & Flanged Fittings”</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+<script> 
+                    const productDictionary = {
+                    'Butt-weld-pro': [{
+                        name: 'Screwed Fitting',
+                        imageUrl: './Images/Fitting Seamless/screwed-fittings.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Screwed Fitting.html'
+                    }, {
+                        name: 'Ferrule Fitting',
+                        imageUrl: './Images/Fitting Seamless/ferrule-fittings.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Ferrule Fitting.html'
+                    }, {
+                        name: 'Socket Weld Fitting',
+                        imageUrl: './Images/Fitting Seamless/socket-weld.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Socket Weld Fitting.html'
+                    }, {
+                        name: 'Forged Fitting',
+                        imageUrl: './Images/Fitting Seamless/stainless-steel-904l-forge-fitting.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Forged Fitting.html'
+                    }, {
+                        name: 'Buttweld Pipe Fitting',
+                        imageUrl: './Images/Fitting Seamless/stainless-steel-hygienic-pipe-fittings-wellgreen.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Hygienic Pipe Fitting.html'
+                    }, {
+                        name: 'Threaded Fitting',
+                        imageUrl: './Images/Fitting Seamless/threaded fitting.jpg',
+                        buttonText: 'Show Details',
+                        buttonUrl: './Sub-Products/Fitting Products/Threaded Fitting.html'
+                    },
+
+                ]
+
+                }
+
+                // Function to display product details when clicked
+                function displayProductDetails(categoryId, productId) {
+                    const productDetailsContainer = document.getElementById('product-details');
+                    const productTitle = document.getElementById('product-title');
+                    const productImage = document.querySelector('.product-image');
+                    const selectedProduct = productDictionary[categoryId][productId];
+                    productTitle.textContent = selectedProduct.name;
+                    productImage.src = selectedProduct.imageUrl;
+                    productDetailsContainer.style.display = 'block';
+                }
+                // Function to show products for a specific category
+                function showCategory(categoryId) {
+                    const allProductContainer = document.getElementById('all-product-list');
+                    const productDetailsContainer = document.getElementById('product-details');
+
+                    // Hide the product details container
+                    productDetailsContainer.style.display = 'none';
+                    // Clear existing products
+                    allProductContainer.innerHTML = '';
+                    // Show products for the selected category
+                    const products = (categoryId === 'all') ? Object.values(productDictionary).flat() : productDictionary[categoryId];
+                    // Populate products for the selected category
+                    products.forEach((product, index) => {
+                        const productItem = document.createElement('div');
+                        productItem.classList.add('product-item', 'product-card');
+                        productItem.innerHTML = `
+                    <div class="product-card-header" onclick="displayProductDetails('${categoryId}', ${index})">
+        ${product.name}
+    </div>
+    <div class="product-card-body">
+        <img src="${product.imageUrl}" alt="${product.name}" class="product-image">        
+    </div>
+    <div class="product-redirect-btn">
+    <a href="#" class="btn-pro" onclick="redirectToProductPage('${product.buttonUrl}')">${product.buttonText}</a>
+    </<div>
+        
+    
+                `;
+                        allProductContainer.appendChild(productItem);
+                    });
+                    // Show the selected product container
+                    allProductContainer.style.display = 'flex';
+                }
+                // Function to redirect to the product page
+                function redirectToProductPage(url) {
+                    window.location.href = url;
+                }
+                // Trigger the initial display of all categories
+                showCategory('all');
+            </script>
 
 
 </body>

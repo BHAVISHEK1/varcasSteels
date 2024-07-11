@@ -90,11 +90,26 @@
                                 </li>
 
                                               
-                                <li>
+                                <!-- <li>
                                     <button class="btn-nav" data-category="Butt-weld-pro" onclick="showCategory('Butt-weld-pro')">
                                         Fittings
                                     </button>    
+                                </li> -->
+
+
+                                <li>
+                                    <button class="btn-nav" data-category="Butt-weld-pro" onclick="navigateTo('Fittings2.html')">
+                                        <a href="Fittings2.html" class="btn-nav">
+                                            Fittings
+                                        </a>
+
+
+
+                                    </button>
+
                                 </li>
+                                
+                                
 
                                      
                                 <li>
@@ -204,24 +219,7 @@
                             buttonText: 'Show Details',
                             buttonUrl: './Sub-Products/Customised Fabrication/Hollow.html'
                         },
-                        // {
-                        //     name: 'Beams',
-                        //     imageUrl: './Images/Structural product/metal-beams.jpg',
-                        //     buttonText: 'Show Details',
-                        //     buttonUrl: './Sub-Products/Customised Fabrication/Beams.html'
-                        // },
-                        // {
-                        //     name: 'Europa Beams',
-                        //     imageUrl: './Images/Structural product/e-beams.jpg',
-                        //     buttonText: 'Show Details',
-                        //     buttonUrl: './Sub-Products/Customised Fabrication/Europa Beams.html'
-                        // },
-                        // {
-                        //     name: 'Pipe',
-                        //     imageUrl: './Images/Structural product/304-stainless-steel-pipe.jpg',
-                        //     buttonText: 'Show Details',
-                        //     buttonUrl: './Sub-Products/Customised Fabrication/Pipe.html'
-                        // },
+                    
                         {
                             name: 'Puddle Flange',
                             imageUrl: './Images/Structural product/SS puddle flanges.jpg',
@@ -324,20 +322,7 @@
                             buttonUrl: './Sub-Products/Bars & Wires/DishEnd.html'
 
                         },
-                        // {
-                        //     name: 'Round Bar',
-                        //     imageUrl: './Images/Bars&Wire/ss round bar.jpg',
-                        //     buttonText: 'Show Details',
-                        //     buttonUrl: './Sub-Products/Bars & Wires/Round Bar.html'
-
-                        // },
-                        // {
-                        //     name: 'Wire Rode',
-                        //     imageUrl: './Images/Bars&Wire/ss wire rode.jpg',
-                        //     buttonText: 'Show Details',
-                        //     buttonUrl: './Sub-Products/Bars & Wires/Wire Rode.html'
-
-                        // },
+                       
                         {
                             name: 'Round Bar',
                             imageUrl: './Images/Bars&Wire/Stainless-Steel-Round-Bars.jpg',
@@ -565,9 +550,9 @@
                             buttonText: 'Read More',
                             buttonUrl: './Sub-Products/Flanges/Opening Flange.html'
                         },
-                        // Add more products as needed
+                        
                     ],
-                    // Repeat for other product categories
+                   
                 };
                 // Function to display product details when clicked
                 function displayProductDetails(categoryId, productId) {

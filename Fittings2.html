@@ -11,9 +11,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-   
-
-
 
     <link href="../../css/products.css" rel="stylesheet" type="text/css">
     <link href="../../css/main-sub-product.css" rel="stylesheet" type="text/css">
@@ -30,12 +27,11 @@
     <meta name="description" content="Varcas Stainless Steel Factory specializes in manufacturing high-quality stainless steel products for residential, commercial, and industrial applications. Explore our wide range of durable and aesthetically pleasing stainless steel solutions.">
     <meta name="keywords" content="varcas, stainless steel, factory, products, residential, commercial, industrial">
 </head>
-<body>
 
-  <!-- Header Section -->
-  <header id="header container-fluid">
+<!-- Header Section -->
+<header id="header container-fluid">
     <!-- Fixed Navbar -->
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg p-0">
         <div class="container">
             <div class="logo">
                 <a class="navbar-brand" href="Index.html">
@@ -78,139 +74,361 @@
         </div>
     </nav>
 </header>
-    
 
-<section id="Contain-product">
-    <div class="container-fluid p-0 m-0 heading-contain">
-        <div class="container p-0">
-            <div class="heading">
-                <h1>
-                    Forged Fittings in Piping Systems: A Comprehensive Overview
-                </h1>
-                <p>
-                    Here's a detailed explanation of Forged Fittings:
-                </p>
-            </div>
+
+
+<body>
+
+    <style>
+
+        /* type heading */
+
+        .header {
+            background-color:#2185a0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-top: 5px solid white;
+            
+        }
+        .header p {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .header p {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .header p {
+                font-size: 18px;
+            }
+        }
+
+        /* Silder */
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 33.33%;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+        .carousel-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+
+
+
+
+
+
+    </style>
+
+
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+
+    let index = 0;
+    const slideWidth = items[0].clientWidth;
+
+    function moveToSlide(index) {
+        track.style.transform = 'translateX(' + (-slideWidth * index) + 'px)';
+    }
+
+    nextButton.addEventListener('click', () => {
+        index = Math.min(index + 1, items.length - 3);
+        moveToSlide(index);
+    });
+
+    prevButton.addEventListener('click', () => {
+        index = Math.max(index - 1, 0);
+        moveToSlide(index);
+    });
+
+    setInterval(() => {
+        index = (index + 1) % (items.length - 2);
+        moveToSlide(index);
+    }, 1000);
+</script>
+
+
+
+
+
+     
+     <!-- type heading -->
+
+        <div class="header">
+            <p>STAINLESS STEEL FITTINGS</p>
         </div>
-    </div>
-    <div class="container intro-contain1">
-        <div class="row">
-            <div class="col-lg-6 p-0">
-                <div class="product-image">
-                    <img alt="Forged Fittings" src="../../Images/Fitting Seamless/stainless-steel-904l-forge-fitting.jpg">
-                    </img>
+
+     <!-- type heading -->
+   
+
+        <!-- Slider Galler -->
+
+        <!--Gallery Carousel -->
+        
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="Images/Fitting Seamless/screwed-fittings.jpg" alt="Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/Fitting Seamless/socket-weld-fittings.png" alt="Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/Fitting Seamless/stainless-steel-hygienic-pipe-fittings-wellgreen.jpg" alt="Image 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/Fitting Seamless/threaded fitting.jpg" alt="Image 4">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 p-0 item-intro">
-                <div class="item-intro-text">
-                    <h2>
-                        Introduction to Forged Fittings:
-                    </h2>
-                    <p>
-                        Forged Fittings play a crucial role in piping systems by providing strong and leak-resistant connections. They are manufactured through a forging process that involves shaping metal under high pressure and temperature, resulting in fittings with enhanced strength and durability.
-                    </p>
-                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
             </div>
         </div>
-    </div>
-    <div class="container p-0 main-contain">
-        <div class="item-design">
-            <h2>
-                Design and Structure of Forged Fittings:
-            </h2>
-            <p>
-                Forged Fittings are designed to withstand high-pressure and high-temperature applications. They typically feature a compact design with socket weld or threaded ends for easy installation. The forged construction ensures uniform grain structure and superior mechanical properties, making them suitable for demanding environments.
-            </p>
+        <!--Gallery Carousel -->
+
+         <!-- Slider Galler -->
+
+
+
+
+
+
+
+
+
+
+        <!-- Table -->
+
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="6">Range of Buttweld [B/W] Fitting</th>
+                    </tr>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Material</th>
+                        <th>Size</th>
+                        <th>Schedule</th>
+                        <th>Specification</th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Seamless</td>
+                        <td>15 NB
+                            To
+                            300 NB</td>
+                        <td>Sch. 5
+                            to
+                            Sch. XXs</td>
+                        <td>A-403 B/W
+                            ANSI B16.9</td>
+                        <td rowspan="2">
+                            <ul>
+                                <li>Bend (Long & Short)
+                                    R=2D,3D,5D,10D Etc</li>
+                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                <li>Tee (Equal & Unequal)</li>
+                                <li>Reducer (Con & Ecc)</li>
+                                <li>CAP</li>
+                                <li>Stubend (Long & Short)</li>
+                                <li>Nipple (Barrel)</li>
+                            </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                          <td>2.</td>
+                          <td>Welded (ERW)</td>
+                          <td>15 NB
+                            To
+                            600 NB</td>
+                          <td>Sch. 5
+                            To
+                            Sch. 80s</td>
+                          <td>A-403 B/W
+                            ANSI B16.9</td>
+                      </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="item-type">
-            <h2>
-                Types of Forged Fittings:
-            </h2>
-            <p>
-                Forged Fittings are available in various types to accommodate different piping requirements. Common types include socket weld fittings and threaded fittings, each offering distinct advantages in terms of ease of installation, leakage prevention, and compatibility with specific piping systems.
-            </p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <td>ASTM A403 WP 304/ 304L/ 304H/316/ 316L/ 317/ 317L/ 321/ 310/ 347/ 904L etc.</td>
+                    </tr>
+                    <tr>
+                        <th>Size:</th>
+                        <td>1/4” NB TO 32” NB. (Seamless & Welded)</td>
+                    </tr>
+                    <tr>
+                        <th>Wall Thickness:</th>
+                        <td>Sch. 5S to Sch. XXS.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="item-Installation">
-            <h2>
-                Installation of Forged Fittings:
-            </h2>
-            <p>
-                Installing Forged Fittings involves cleaning and preparing the pipe ends, then threading or welding the fittings onto the pipes. Care must be taken to ensure proper alignment and tightness to prevent leaks. Forged Fittings are often preferred for critical applications where reliable and leak-free connections are essential.
-            </p>
+        <div class="line"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="6">Range of Forged Fitting (S/W & SCRD)</th>
+                    </tr>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Material</th>
+                        <th>Size</th>
+                        <th>Schedule</th>
+                        <th>Specification</th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Seamless</td>
+                        <td>15 NB
+                            To
+                            300 NB</td>
+                        <td>Sch. 5
+                            to
+                            Sch. XXs</td>
+                        <td>A-403 B/W
+                            ANSI B16.9</td>
+                        <td rowspan="2">
+                            <ul>
+                                <li>Bend (Long & Short)
+                                    R=2D,3D,5D,10D Etc</li>
+                                <li>Elbow ( 180<sup>o</sup>, 90<sup>o</sup> &amp; 45<sup>o</sup>)</li>
+                                <li>Tee (Equal & Unequal)</li>
+                                <li>Reducer (Con & Ecc)</li>
+                                <li>CAP</li>
+                                <li>Stubend (Long & Short)</li>
+                                <li>Nipple (Barrel)</li>
+                            </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>Welded (ERW)</td>
+                        <td>15 NB
+                          To
+                          600 NB</td>
+                        <td>Sch. 5
+                          To
+                          Sch. 80s</td>
+                        <td>A-403 B/W
+                          ANSI B16.9</td>
+                      </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="item-Pressure-Ratings ">
-            <h2>
-                Pressure Ratings and Applications:
-            </h2>
-            <p>
-                Forged Fittings are suitable for high-pressure piping systems across various industries, including oil and gas, chemical processing, power generation, and shipbuilding. They are commonly used in applications such as steam, water, oil, gas, and chemical handling, where reliable performance under extreme conditions is crucial.
-            </p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <td>ASTM A182 F304/ 304L/ 304H/ 316/ 316L/ 317/ 317L/ 321/ 310/ 347/ 904L etc.</td>
+                    </tr>
+                    <tr>
+                        <th>Size:</th>
+                        <td>1/2” NB TO 24” NB.</td>
+                    </tr>
+                    <tr>
+                        <th>Class:</th>
+                        <td>150#, 300#, 400#, 600#, 900#, 1500# & 2500#.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="item-Material-Selection">
-            <h2>
-                Material Selection for Forged Fittings:
-            </h2>
-            <p>
-                Forged Fittings are available in a wide range of materials to suit different operating conditions and fluid handling requirements. Common materials include carbon steel, stainless steel, alloy steel, and exotic alloys, selected based on factors such as corrosion resistance, temperature, and pressure ratings of the piping system.
-            </p>
+
+
+
+
+        <div class="header">
+            <p>NICKEL ALLOY FITTINGS</p>
         </div>
-        <div class="item-Testing">
-            <h2>
-                Testing and Quality Assurance:
-            </h2>
-            <p>
-                Forged Fittings undergo stringent testing and quality assurance measures to ensure compliance with industry standards and specifications. This may include visual inspections, dimensional checks, mechanical testing, and non-destructive testing (NDT) to verify the integrity and performance of the fittings.
-            </p>
+
+
+
+
+        <div class="header">
+            <p>Non Ferrous Metal</p>
         </div>
-        <div class="item-Use-Case">
-            <h2>
-                Applications and Use Cases of Forged Fittings:
-            </h2>
-            <p>
-                Forged Fittings are widely used in various applications, including:
-            </p>
-            <ul>
-                <li>
-                    High-pressure steam and gas piping systems.
-                </li>
-                <li>
-                    Petrochemical and chemical processing plants.
-                </li>
-                <li>
-                    Power generation facilities.
-                </li>
-                <li>
-                    Shipbuilding and offshore platforms.
-                </li>
-            </ul>
+
+
+
+
+        <div class="header">
+            <p>Alloy Steel</p>
         </div>
-        <div class="item-Advantages">
-            <h2>
-                Advantages of Forged Fittings:
-            </h2>
-            <ul>
-                <li>
-                    <span>
-                        High Strength:
-                    </span>
-                    Forged Fittings offer superior strength and durability compared to cast fittings, making them suitable for high-pressure applications.
-                </li>
-                <li>
-                    <span>
-                        Leak Resistance:
-                    </span>
-                    The tight seal provided by threaded or socket weld connections minimizes the risk of leaks, ensuring reliable performance in critical systems.
-                </li>
-                <li>
-                    <span>
-                        Versatility:
-                    </span>
-                    Forged Fittings are available in a wide range of sizes, types, and materials, offering versatility and flexibility in design and application.
-                </li>
-            </ul>
+
+
+
+        <div class="header">
+            <p>Carbon Steel</p>
         </div>
-    </div>
-</section>
+
+
+
+
+
+</body>
 
 
 
@@ -219,23 +437,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- Fixed Footer -->
-      <footer id="footer">
+     <!-- Fixed Footer -->
+     <footer id="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
@@ -364,11 +567,6 @@
         </div>
         </hr>
     </footer>
-    <!-- Bootstrap JS (make sure to include it) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-    </script>
-</body>
-
 
 
 </html>

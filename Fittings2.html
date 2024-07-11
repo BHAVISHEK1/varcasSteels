@@ -114,11 +114,6 @@
 
 
 
-
-
-
-
-
         /* type heading */
 
         .header {
@@ -161,10 +156,11 @@
             flex: 0 0 auto;
             margin-right: 10px; /* Adjust as needed */
             scroll-snap-align: start;
+            margin: 10px;
         }
         .portfolio-item-wrap {
-            width: 400px; /* Adjust the width as needed */
-            height: 400px; /* Adjust the height as needed */
+            width: 300px; /* Adjust the width as needed */
+            height: 300px; /* Adjust the height as needed */
             overflow: hidden;
             border: 1px solid #ccc; /* Border style */
             border-radius: 10px;
@@ -190,6 +186,191 @@
 
 
 
+      
+
+/* Heading section */
+.custom-heading {
+
+    border-top: 10px solid white;
+    background-color: #2185a0;
+    text-align:left;
+    color: white;
+    padding: 10px;
+}
+
+.custom-heading-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+
+  
+    
+}
+
+.custom-heading-content p {
+    font-size: 1.2rem;
+    color:white;
+    border-top: 5px solid #25a989;
+   
+}
+
+/* Introduction section */
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.item-intro-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  
+}
+
+/* Main content sections */
+
+
+.section-item {
+    margin-bottom: 40px;
+
+   
+}
+
+.section-item:hover{
+    background-color: #2185a0;
+    color: white;
+}
+
+
+.section-item h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    
+}
+
+.section-item p {
+
+    border-top: 5px solid #25a989;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 10px;
+}
+
+.section-item ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.section-item ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.section-item ul li span {
+    font-weight: bold;
+}
+
+
+        /* Details */
+
+
+        /* products */
+
+        .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width:100%;
+        padding: 10px;   
+    }
+
+
+
+    @media (max-width: 500px) {
+        .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        }
+}
+
+    @media (max-width: 400px) {
+        .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        }
+}
+
+
+@media (max-width: 290px) {
+        .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        }
+}
+
+
+    .gallery-box {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden; /* Ensure image doesn't exceed box boundaries */
+    }
+
+    .gallery-header {
+        background-color: #2185a0;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .gallery-image {
+        padding: 10px;
+    }
+
+    .gallery-image img {
+        max-width: 100%;
+        height: 200px;
+        border-radius: 5px;
+    }
+
+
+
+
+    /* Dropdown */
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 
 
     </style>
@@ -198,10 +379,282 @@
 
 <script>
 
-    // Slider
+//  Dropdown 
+
+
+// JavaScript for hover effect (optional)
+const dropdown = document.querySelector('.dropdown');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+dropdown.addEventListener('mouseenter', function() {
+    dropdownContent.style.display = 'block';
+});
+
+dropdown.addEventListener('mouseleave', function() {
+    dropdownContent.style.display = 'none';
+});
+
+// dropdown scroll 
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
    
 </script>
+
+
+
+
+    <!-- products header -->
+
+    <section id="products">
+        <div class="container-fluid p-0 m-0 product-section1">
+            <div class="row p-0 m-0">
+                <div class="col-lg-12 p-0 m-0 product-item-details">
+                    <div class="row cateory">
+                        <div class="row category">
+
+                            
+                            <ul>
+
+                                <li>
+                                    <button class="btn-nav" data-category="all" onclick="showCategory('all')">
+                                        All
+                                    </button>
+                                </li>
+
+                                              
+                                <!-- <li>
+                                    <button class="btn-nav" data-category="Butt-weld-pro" onclick="showCategory('Butt-weld-pro')">
+                                        Fittings
+                                    </button>    
+                                </li> -->
+
+
+                                <!-- <li>
+                                    <button class="btn-nav" data-category="Butt-weld-pro" onclick="navigateTo('Fittings2.html')">
+                                        <a href="Fittings2.html" class="btn-nav">
+                                            Fittings
+                                        </a>
+                                    </button>
+                                </li> -->
+                                
+                                <li class="dropdown">
+                                    <button class="btn-nav" data-category="Butt-weld-pro" onclick="navigateTo('Fittings2.html')">
+                                        Fittings
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <a href="#Stainless" onclick="scrollToSection('Stainless')">Stainless Steel</a>
+                                        <a href="#Nickel" onclick="scrollToSection('Nickel')">Nickel Alloy</a>
+                                        <a href="#Non Ferrous" onclick="scrollToSection('Non Ferrous')">Non Ferrous Metal</a>
+                                        <a href="#Alloy" onclick="scrollToSection('Alloy')">Alloy Steel</a>
+                                        <a href="#Carbon" onclick="scrollToSection('Carbon')">Carbon Steel</a>
+                                        <a href="#products-section" onclick="scrollToSection('products-section')">Products</a>
+                                    </div>
+                                </li>
+                                
+                                
+
+                                     
+                                <li>
+                                    <button class="btn-nav" data-category="Flanges-pro" onclick="showCategory('Flanges-pro')">
+                                        Flanges
+                                    </button>
+                                </li>
+
+
+                                <li>
+                                    <button class="btn-nav" data-category="Fasteners-pro" onclick="showCategory('Fasteners-pro')">
+                                        Fasteners
+                                    </button>
+                                </li>
+                                
+                               
+                                <li>
+                                    <button class="btn-nav" data-category="pipe-tube-pro" onclick="showCategory('pipe-tube-pro')">
+                                        Pipes & Tubes
+                                    </button>
+                                </li>
+
+                                
+                                <li>
+                                    <button class="btn-nav" data-category="Bar&wires-pro" onclick="showCategory('Bar&wires-pro')">
+                                        Bars & Wires
+                                    </button>
+                                </li>
+
+                                
+                                <li>
+                                    <button class="btn-nav" data-category="Customised-Fabrication" onclick="showCategory('Customised-Fabrication')">
+                                        Customised Fabrication
+                                    </button>
+                                </li>
+
+                            </ul>
+
+
+
+
+                            
+                            
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+     <!-- products header -->
+
+
+
+
+
+        <!-- details -->
+
+        
+        <div id="types-section" class="container-fluid p-0 m-0 custom-heading">
+            <div class="container p-0">
+                <div class="custom-heading-content">
+                    <h1>
+                        Ferrule Fittings: A Comprehensive Overview
+                    </h1>
+                    <p>
+                        Explore the detailed explanation of Ferrule Fittings below:
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container intro-container">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="product-image">
+                        <img alt="Ferrule Fittings" src="../../Images/Fitting Seamless/ferrule-fittings.jpg">
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0 item-intro">
+                    <div class="item-intro-text">
+                        <h2>
+                            Introduction to Ferrule Fittings:
+                        </h2>
+                        <p>
+                            Ferrule Fittings are essential components in fluid handling systems, offering a reliable and leak-free connection between pipes or tubes. These fittings consist of a nut, a back ferrule, and a front ferrule, which compress around the tubing to create a secure seal. Ferrule Fittings are widely used in industries such as pharmaceuticals, food and beverage, and chemical processing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container main-container">
+            <div id="design-structure" class="section-item">
+                <h2>
+                    Design and Structure of Ferrule Fittings:
+                </h2>
+                <p>
+                    Ferrule Fittings typically comprise two ferrules (front and back) and a nut. The front ferrule is placed first, followed by the back ferrule and the nut. When the nut is tightened, it compresses the ferrules onto the tubing, creating a tight and secure seal. The design ensures proper alignment and prevents leakage, even under high pressure and temperature conditions.
+                </p>
+            </div>
+            <div id="types" class="section-item">
+                <h2>
+                    Types of Ferrule Fittings:
+                </h2>
+                <p>
+                    Ferrule Fittings are available in various configurations to suit different tubing sizes, materials, and application requirements. Common types include single ferrule fittings and double ferrule fittings. Single ferrule fittings utilize a single ferrule for sealing, while double ferrule fittings incorporate two ferrules for enhanced sealing and reliability.
+                </p>
+            </div>
+            <div id="installation" class="section-item">
+                <h2>
+                    Installation of Ferrule Fittings:
+                </h2>
+                <p>
+                    Installing Ferrule Fittings involves inserting the tubing into the fitting body, ensuring proper alignment and insertion depth. The nut is then tightened using a wrench to compress the ferrules onto the tubing, creating a secure connection. Proper installation techniques are essential to prevent leaks and ensure optimal performance of the fitting.
+                </p>
+            </div>
+            <div id="pressure-ratings" class="section-item">
+                <h2>
+                    Pressure Ratings and Applications:
+                </h2>
+                <p>
+                    Ferrule Fittings are designed to withstand high pressure and temperature conditions, making them suitable for a wide range of applications in industries such as oil and gas, chemical processing, and instrumentation. They are commonly used in fluid handling systems, gas chromatography, and analytical instrumentation where leak-free connections are critical.
+                </p>
+            </div>
+            <div id="material-selection" class="section-item">
+                <h2>
+                    Material Selection for Ferrule Fittings:
+                </h2>
+                <p>
+                    Ferrule Fittings are available in various materials such as stainless steel, brass, and alloy steel to ensure compatibility with different fluids and environmental conditions. The choice of material depends on factors such as corrosion resistance, temperature, and pressure requirements of the specific application.
+                </p>
+            </div>
+            <div id="testing-qa" class="section-item">
+                <h2>
+                    Testing and Quality Assurance:
+                </h2>
+                <p>
+                    Ferrule Fittings undergo rigorous testing to ensure they meet industry standards for performance and reliability. This may include pressure testing, leak testing, material analysis, and dimensional checks to verify the integrity and functionality of the fittings. Quality assurance measures help ensure consistent quality and performance of Ferrule Fittings.
+                </p>
+            </div>
+            <div id="applications" class="section-item">
+                <h2>
+                    Applications and Use Cases of Ferrule Fittings:
+                </h2>
+                <p>
+                    Ferrule Fittings are used in a wide range of applications across industries, including:
+                </p>
+                <ul>
+                    <li>
+                        Pharmaceutical and biotechnology processing.
+                    </li>
+                    <li>
+                        Food and beverage production.
+                    </li>
+                    <li>
+                        Chemical and petrochemical processing.
+                    </li>
+                </ul>
+            </div>
+            <div id="advantages" class="section-item">
+                <h2>
+                    Advantages of Ferrule Fittings:
+                </h2>
+                <ul>
+                    <li>
+                        <span>
+                            Leak-Free Sealing:
+                        </span>
+                        Ferrule Fittings provide a reliable and leak-free connection, ensuring safe and efficient operation of fluid handling systems.
+                    </li>
+                    <li>
+                        <span>
+                            Easy Installation:
+                        </span>
+                        They are easy to install and require minimal tools, reducing assembly time and labor costs.
+                    </li>
+                    <li>
+                        <span>
+                            Versatility:
+                        </span>
+                        Ferrule Fittings are compatible with various tubing materials and sizes, offering flexibility in system design and application.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        
+
+    <!-- details -->
+
+
+
 
 
 
@@ -210,7 +663,7 @@
      
      <!-- type heading -->
 
-        <div class="header">
+        <div id="Stainless" class="header">
             <p>STAINLESS STEEL FITTINGS</p>
         </div>
 
@@ -436,7 +889,7 @@
 
 
 
-        <div class="header">
+        <div id="Nickel" class="header">
             <p>NICKEL ALLOY FITTINGS</p>
         </div>
 
@@ -629,7 +1082,7 @@
 
 
 
-        <div class="header">
+        <div id="Non Ferrous" class="header">
             <p>Non Ferrous Metal</p>
         </div>
 
@@ -782,7 +1235,7 @@
 
 
 
-        <div class="header">
+        <div id="Alloy" class="header">
             <p>Alloy Steel</p>
         </div>
 
@@ -992,8 +1445,8 @@
 
 
 
-        <div class="header">
-            <p>Carbon Steel</p>
+        <div id="Carbon" class="header">
+            <p>Carbon Steel Fittings</p>
         </div>
 
 
@@ -1217,94 +1670,87 @@
 
 
 
-<script> 
-                    const productDictionary = {
-                    'Butt-weld-pro': [{
-                        name: 'Screwed Fitting',
-                        imageUrl: './Images/Fitting Seamless/screwed-fittings.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Screwed Fitting.html'
-                    }, {
-                        name: 'Ferrule Fitting',
-                        imageUrl: './Images/Fitting Seamless/ferrule-fittings.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Ferrule Fitting.html'
-                    }, {
-                        name: 'Socket Weld Fitting',
-                        imageUrl: './Images/Fitting Seamless/socket-weld.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Socket Weld Fitting.html'
-                    }, {
-                        name: 'Forged Fitting',
-                        imageUrl: './Images/Fitting Seamless/stainless-steel-904l-forge-fitting.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Forged Fitting.html'
-                    }, {
-                        name: 'Buttweld Pipe Fitting',
-                        imageUrl: './Images/Fitting Seamless/stainless-steel-hygienic-pipe-fittings-wellgreen.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Hygienic Pipe Fitting.html'
-                    }, {
-                        name: 'Threaded Fitting',
-                        imageUrl: './Images/Fitting Seamless/threaded fitting.jpg',
-                        buttonText: 'Show Details',
-                        buttonUrl: './Sub-Products/Fitting Products/Threaded Fitting.html'
-                    },
 
-                ]
 
-                }
 
-                // Function to display product details when clicked
-                function displayProductDetails(categoryId, productId) {
-                    const productDetailsContainer = document.getElementById('product-details');
-                    const productTitle = document.getElementById('product-title');
-                    const productImage = document.querySelector('.product-image');
-                    const selectedProduct = productDictionary[categoryId][productId];
-                    productTitle.textContent = selectedProduct.name;
-                    productImage.src = selectedProduct.imageUrl;
-                    productDetailsContainer.style.display = 'block';
-                }
-                // Function to show products for a specific category
-                function showCategory(categoryId) {
-                    const allProductContainer = document.getElementById('all-product-list');
-                    const productDetailsContainer = document.getElementById('product-details');
+                    <div id="products-section" class="header">
+                        <p>Fitting Products</p>
+                    </div>
 
-                    // Hide the product details container
-                    productDetailsContainer.style.display = 'none';
-                    // Clear existing products
-                    allProductContainer.innerHTML = '';
-                    // Show products for the selected category
-                    const products = (categoryId === 'all') ? Object.values(productDictionary).flat() : productDictionary[categoryId];
-                    // Populate products for the selected category
-                    products.forEach((product, index) => {
-                        const productItem = document.createElement('div');
-                        productItem.classList.add('product-item', 'product-card');
-                        productItem.innerHTML = `
-                    <div class="product-card-header" onclick="displayProductDetails('${categoryId}', ${index})">
-        ${product.name}
-    </div>
-    <div class="product-card-body">
-        <img src="${product.imageUrl}" alt="${product.name}" class="product-image">        
-    </div>
-    <div class="product-redirect-btn">
-    <a href="#" class="btn-pro" onclick="redirectToProductPage('${product.buttonUrl}')">${product.buttonText}</a>
-    </<div>
-        
-    
-                `;
-                        allProductContainer.appendChild(productItem);
-                    });
-                    // Show the selected product container
-                    allProductContainer.style.display = 'flex';
-                }
-                // Function to redirect to the product page
-                function redirectToProductPage(url) {
-                    window.location.href = url;
-                }
-                // Trigger the initial display of all categories
-                showCategory('all');
-            </script>
+
+                  
+                       
+                    
+
+
+                  
+                    <div  class="gallery-container">
+
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+                    
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+                    
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+                    
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+                    
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Welded Pipe
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+                    
+                  
+                    
+                    </div>
+                    
+                    
+              
+
+
 
 
 </body>

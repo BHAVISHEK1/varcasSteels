@@ -86,31 +86,31 @@
 
 
 
-.carousel {
-    display: flex;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical scrollbar by default */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* Optional: Enables momentum scrolling in iOS Safari */
-}
+        .carousel {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            overflow-y: hidden; /* Hide vertical scrollbar by default */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* Optional: Enables momentum scrolling in iOS Safari */
+        }
 
-.carousel::-webkit-scrollbar {
-   height:7px;
-}
+        .carousel::-webkit-scrollbar {
+        height:7px;
+        }
 
-.carousel::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Track color */
-    border-radius: 7px; /* Rounded corners */
-}
+        .carousel::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Track color */
+            border-radius: 7px; /* Rounded corners */
+        }
 
-.carousel::-webkit-scrollbar-thumb {
-    background: #c5c5c5; /* Thumb color */
-    border-radius: 10px; /* Rounded corners */
-}
+        .carousel::-webkit-scrollbar-thumb {
+            background: #c5c5c5; /* Thumb color */
+            border-radius: 10px; /* Rounded corners */
+        }
 
-.carousel::-webkit-scrollbar-thumb:hover {
-    background: #d5d5d5; /* Hovered thumb color */
-}
+        .carousel::-webkit-scrollbar-thumb:hover {
+            background: #d5d5d5; /* Hovered thumb color */
+        }
 
 
 
@@ -125,9 +125,7 @@
             height: 100px;
             border-bottom: 5px solid rgb(72, 235, 211);;
             border-top: 5px solid rgb(72, 235, 211);
-
-
-            
+   
         }
         .header p {
             margin: 0;
@@ -182,94 +180,88 @@
             border-radius: 10px; /* Rounded corners for the image */
         }
       
-
-
-
-
       
 
-/* Heading section */
-.custom-heading {
+        /* Heading section */
+        .custom-heading {
 
-    border-top: 10px solid white;
-    background-color: #2185a0;
-    text-align:left;
-    color: white;
-    padding: 10px;
-}
+            border-top: 10px solid white;
+            background-color: #2185a0;
+            text-align:left;
+            color: white;
+            padding: 10px;
+        }
 
-.custom-heading-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+        .custom-heading-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;    
+        }
 
-  
-    
-}
-
-.custom-heading-content p {
-    font-size: 1.2rem;
-    color:white;
-    border-top: 5px solid #25a989;
-   
-}
-
-/* Introduction section */
-
-.product-image img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.item-intro-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  
-}
-
-/* Main content sections */
+        .custom-heading-content p {
+            font-size: 1.2rem;
+            color:white;
+            border-top: 5px solid #25a989;
+        
+        }
 
 
-.section-item {
-    margin-bottom: 40px;
+        /* Introduction section */
 
-   
-}
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
 
-.section-item:hover{
-    background-color: #2185a0;
-    color: white;
-}
+        .item-intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        
+        }
+
+        /* Main content sections */
 
 
-.section-item h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    
-}
+        .section-item {
+            margin-bottom: 40px;
 
-.section-item p {
+        
+        }
 
-    border-top: 5px solid #25a989;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 10px;
-}
+        .section-item:hover{
+            background-color: #2185a0;
+            color: white;
+        }
 
-.section-item ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
 
-.section-item ul li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
+        .section-item h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            
+        }
 
-.section-item ul li span {
-    font-weight: bold;
-}
+        .section-item p {
+
+            border-top: 5px solid #25a989;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 10px;
+        }
+
+        .section-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .section-item ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .section-item ul li span {
+            font-weight: bold;
+        }
 
 
         /* Details */
@@ -292,22 +284,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         }
-}
+    }
 
     @media (max-width: 400px) {
         .gallery-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         }
-}
+    }
 
 
-@media (max-width: 290px) {
-        .gallery-container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        }
-}
+    @media (max-width: 290px) {
+            .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            }
+    }
 
 
     .gallery-box {
@@ -345,30 +337,36 @@
     .dropdown {
     position: relative;
     display: inline-block;
-}
+    }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color:#2185a0;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 2;
+        width: 200px;
+        border-radius:7px ;
+       
+    }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+    .dropdown-content a {
+        color: black;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+        border-radius:7px ;
+        color: white;
+    }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+    .dropdown-content a:hover {
+        background-color:white;
+        color:#2185a0;
+    }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
 
 
@@ -435,13 +433,6 @@ function scrollToSection(sectionId) {
                                 </li> -->
 
 
-                                <!-- <li>
-                                    <button class="btn-nav" data-category="Butt-weld-pro" onclick="navigateTo('Fittings2.html')">
-                                        <a href="Fittings2.html" class="btn-nav">
-                                            Fittings
-                                        </a>
-                                    </button>
-                                </li> -->
                                 
                                 <li class="dropdown">
                                     <button class="btn-nav" data-category="Butt-weld-pro" onclick="navigateTo('Fittings2.html')">
@@ -495,22 +486,9 @@ function scrollToSection(sectionId) {
                                 </li>
 
                             </ul>
-
-
-
-
-                            
-                            
-
-
-
-
-
-
+                        
                         </div>
                     </div>
-
-
      <!-- products header -->
 
 
@@ -524,10 +502,10 @@ function scrollToSection(sectionId) {
             <div class="container p-0">
                 <div class="custom-heading-content">
                     <h1>
-                        Ferrule Fittings: A Comprehensive Overview
+                        Fittings: A Comprehensive Overview
                     </h1>
                     <p>
-                        Explore the detailed explanation of Ferrule Fittings below:
+                        Explore the detailed explanation of Fittings below:
                     </p>
                 </div>
             </div>
@@ -543,10 +521,10 @@ function scrollToSection(sectionId) {
                 <div class="col-lg-6 p-0 item-intro">
                     <div class="item-intro-text">
                         <h2>
-                            Introduction to Ferrule Fittings:
+                            Introduction to Fittings:
                         </h2>
                         <p>
-                            Ferrule Fittings are essential components in fluid handling systems, offering a reliable and leak-free connection between pipes or tubes. These fittings consist of a nut, a back ferrule, and a front ferrule, which compress around the tubing to create a secure seal. Ferrule Fittings are widely used in industries such as pharmaceuticals, food and beverage, and chemical processing.
+                            A fitting or adapter connects sections of pipe or tube in systems to adapt to different sizes or shapes and regulate fluid flow. They are used in plumbing to manage fluids like water, gas, petroleum, and liquid waste in domestic or commercial settings. Connection methods vary based on the material and environment, including soldering, mortaring, caulking, welding, friction fittings, threaded fittings, and compression fittings.   
                         </p>
                     </div>
                 </div>
@@ -556,26 +534,26 @@ function scrollToSection(sectionId) {
         <div class="container main-container">
             <div id="design-structure" class="section-item">
                 <h2>
-                    Design and Structure of Ferrule Fittings:
+                    Design and Structure of Fittings:
                 </h2>
                 <p>
-                    Ferrule Fittings typically comprise two ferrules (front and back) and a nut. The front ferrule is placed first, followed by the back ferrule and the nut. When the nut is tightened, it compresses the ferrules onto the tubing, creating a tight and secure seal. The design ensures proper alignment and prevents leakage, even under high pressure and temperature conditions.
+                    The design and structure of fittings involve a main body, ferrules (front and back), and a nut. They come in various types, such as single and double ferrule fittings, and are made from materials like stainless steel, brass, and plastic to suit different applications. Connections can be threaded, compression, welded, or flanged, each serving different needs. Key design considerations include pressure ratings, temperature range, corrosion resistance, and ease of installation. These fittings ensure leak-free, durable, and versatile connections in plumbing, industrial, and automotive systems.
                 </p>
             </div>
             <div id="types" class="section-item">
                 <h2>
-                    Types of Ferrule Fittings:
+                    Types of Fittings:
                 </h2>
                 <p>
-                    Ferrule Fittings are available in various configurations to suit different tubing sizes, materials, and application requirements. Common types include single ferrule fittings and double ferrule fittings. Single ferrule fittings utilize a single ferrule for sealing, while double ferrule fittings incorporate two ferrules for enhanced sealing and reliability.
+                    Fittings come in various materials for different uses. Stainless steel fittings are strong and corrosion-resistant, ideal for high-pressure and corrosive environments. Brass fittings are cost-effective and good for water supply and gas lines. Plastic fittings are lightweight and corrosion-resistant, suitable for low-pressure systems like irrigation. Copper fittings, known for their thermal conductivity, are used in plumbing and heating systems. Each material offers unique advantages, ensuring fittings meet specific application needs.
                 </p>
             </div>
             <div id="installation" class="section-item">
                 <h2>
-                    Installation of Ferrule Fittings:
+                    Installation of Fittings:
                 </h2>
                 <p>
-                    Installing Ferrule Fittings involves inserting the tubing into the fitting body, ensuring proper alignment and insertion depth. The nut is then tightened using a wrench to compress the ferrules onto the tubing, creating a secure connection. Proper installation techniques are essential to prevent leaks and ensure optimal performance of the fitting.
+                    Fittings are installed by first ensuring the pipe and fitting are clean and free from debris. For threaded fittings, apply thread sealant or tape to the male threads, then screw the fitting onto the pipe by hand, tightening with a wrench as needed. For compression fittings, slide the nut and ferrule onto the pipe, insert the pipe into the fitting body, and tighten the nut to compress the ferrule. Welded fittings require precise cutting and aligning of pipes, followed by welding to create a secure joint. Proper installation techniques ensure leak-free and reliable connections, critical for the efficient operation of fluid handling systems.
                 </p>
             </div>
             <div id="pressure-ratings" class="section-item">
@@ -583,15 +561,15 @@ function scrollToSection(sectionId) {
                     Pressure Ratings and Applications:
                 </h2>
                 <p>
-                    Ferrule Fittings are designed to withstand high pressure and temperature conditions, making them suitable for a wide range of applications in industries such as oil and gas, chemical processing, and instrumentation. They are commonly used in fluid handling systems, gas chromatography, and analytical instrumentation where leak-free connections are critical.
+                    Fittings are designed to handle various pressure levels, depending on the material and type. Stainless steel fittings can withstand high pressures, making them suitable for industrial applications like chemical processing and oil and gas. Brass fittings are used in medium-pressure applications such as plumbing and HVAC systems. Plastic fittings, while limited to lower pressures, are ideal for irrigation, wastewater management, and certain chemical handling systems. Proper selection based on pressure ratings ensures the safety and efficiency of fluid handling systems across diverse applications.
                 </p>
             </div>
             <div id="material-selection" class="section-item">
                 <h2>
-                    Material Selection for Ferrule Fittings:
+                    Material Selection for Fittings:
                 </h2>
                 <p>
-                    Ferrule Fittings are available in various materials such as stainless steel, brass, and alloy steel to ensure compatibility with different fluids and environmental conditions. The choice of material depends on factors such as corrosion resistance, temperature, and pressure requirements of the specific application.
+                    Choosing the right material for fittings is crucial to ensure compatibility with the fluid being conveyed and the environmental conditions. Stainless steel fittings are preferred for their high corrosion resistance and strength, making them suitable for aggressive environments in industries such as pharmaceuticals and food processing. Brass fittings offer good durability and are commonly used in water supply systems and HVAC applications due to their resistance to dezincification. Plastic fittings, lightweight and corrosion-resistant, are ideal for low-pressure applications like irrigation and chemical handling where cost-effectiveness and ease of installation are key. Copper fittings, known for their excellent thermal conductivity and resistance to corrosion, are often used in plumbing and heating systems. Each material's properties ensure fittings perform reliably in their respective applications, contributing to system longevity and efficiency.
                 </p>
             </div>
             <div id="testing-qa" class="section-item">
@@ -599,15 +577,15 @@ function scrollToSection(sectionId) {
                     Testing and Quality Assurance:
                 </h2>
                 <p>
-                    Ferrule Fittings undergo rigorous testing to ensure they meet industry standards for performance and reliability. This may include pressure testing, leak testing, material analysis, and dimensional checks to verify the integrity and functionality of the fittings. Quality assurance measures help ensure consistent quality and performance of Ferrule Fittings.
+                    Fittings undergo rigorous testing to ensure reliability and performance. This includes pressure and leak testing to check for leaks and pressure resistance, material analysis for durability and corrosion resistance, and dimensional checks to ensure proper fit. These quality assurance measures ensure fittings meet industry standards and perform effectively in various applications.
                 </p>
             </div>
             <div id="applications" class="section-item">
                 <h2>
-                    Applications and Use Cases of Ferrule Fittings:
+                    Applications and Use Cases of Fittings:
                 </h2>
                 <p>
-                    Ferrule Fittings are used in a wide range of applications across industries, including:
+                    Fittings are used in a wide range of applications across industries, including:
                 </p>
                 <ul>
                     <li>
@@ -623,14 +601,14 @@ function scrollToSection(sectionId) {
             </div>
             <div id="advantages" class="section-item">
                 <h2>
-                    Advantages of Ferrule Fittings:
+                    Advantages of Fittings:
                 </h2>
                 <ul>
                     <li>
                         <span>
                             Leak-Free Sealing:
                         </span>
-                        Ferrule Fittings provide a reliable and leak-free connection, ensuring safe and efficient operation of fluid handling systems.
+                         Fittings provide a reliable and leak-free connection, ensuring safe and efficient operation of fluid handling systems.
                     </li>
                     <li>
                         <span>
@@ -642,7 +620,7 @@ function scrollToSection(sectionId) {
                         <span>
                             Versatility:
                         </span>
-                        Ferrule Fittings are compatible with various tubing materials and sizes, offering flexibility in system design and application.
+                        Fittings are compatible with various tubing materials and sizes, offering flexibility in system design and application.
                     </li>
                 </ul>
             </div>
@@ -663,7 +641,7 @@ function scrollToSection(sectionId) {
      
      <!-- type heading -->
 
-        <div id="Stainless" class="header">
+        <div id="tainless" class="header">
             <p>STAINLESS STEEL FITTINGS</p>
         </div>
 
@@ -1678,17 +1656,12 @@ function scrollToSection(sectionId) {
                     </div>
 
 
-                  
-                       
-                    
-
-
-                  
+                
                     <div  class="gallery-container">
 
                         <div class="gallery-box">
                             <div class="gallery-header">
-                                Welded Pipe
+                                Ferrule Fitting
                             </div>
                             <div class="gallery-image">
                                 <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
@@ -1697,49 +1670,46 @@ function scrollToSection(sectionId) {
                     
                         <div class="gallery-box">
                             <div class="gallery-header">
-                                Welded Pipe
+                                screwed-fittings
                             </div>
                             <div class="gallery-image">
-                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                                <img src="Images\Fitting Seamless\screwed-fittings.jpg" alt="Welded Pipe">
                             </div>
                         </div>
                     
                         <div class="gallery-box">
                             <div class="gallery-header">
-                                Welded Pipe
+                                socket-weld
                             </div>
                             <div class="gallery-image">
-                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="gallery-box">
-                            <div class="gallery-header">
-                                Welded Pipe
-                            </div>
-                            <div class="gallery-image">
-                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                                <img src="Images\Fitting Seamless\socket-weld-fittings.png" alt="Welded Pipe">
                             </div>
                         </div>
                     
                         <div class="gallery-box">
                             <div class="gallery-header">
-                                Welded Pipe
+                                Forged Fitting
                             </div>
                             <div class="gallery-image">
-                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                                <img src="Images\Fitting Seamless\stainless-steel-904l-forge-fitting.jpg" alt="Welded Pipe">
                             </div>
                         </div>
                     
                         <div class="gallery-box">
                             <div class="gallery-header">
-                                Welded Pipe
+                                Hygienic Pipe Fittings
                             </div>
                             <div class="gallery-image">
-                                <img src="Images\Fitting Seamless\ferrule-fittings.jpg" alt="Welded Pipe">
+                                <img src="Images\Fitting Seamless\stainless-steel-hygienic-pipe-fittings-wellgreen.jpg" alt="Welded Pipe">
+                            </div>
+                        </div>
+
+                        <div class="gallery-box">
+                            <div class="gallery-header">
+                                Threaded Fittings
+                            </div>
+                            <div class="gallery-image">
+                                <img src="Images\Fitting Seamless\threaded fitting.jpg" alt="Welded Pipe">
                             </div>
                         </div>
                     
